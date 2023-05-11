@@ -79,7 +79,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="单片机开发软件keil的环境配置"><a href="#单片机开发软件keil的环境配置" class="headerlink" title="单片机开发软件keil的环境配置"></a>单片机开发软件keil的环境配置</h1><hr>
-<h2 id="1、下载库及源码，建立文件夹等"><a href="#1、下载库及源码，建立文件夹等" class="headerlink" title="1、下载库及源码，建立文件夹等"></a>1、下载库及源码，建立文件夹等</h2><p><img src="/2023/05/10/experiment1/experiment1/2023-05-10-23-52-20-image.png"></p>
+<h2 id="1、下载库及源码，建立文件夹等"><a href="#1、下载库及源码，建立文件夹等" class="headerlink" title="1、下载库及源码，建立文件夹等"></a>1、下载库及源码，建立文件夹等</h2><p><img src="/2023/05/10/experiment1/experiment1/2023-05-11-22-37-22-image.png"></p>
 <p>    我下载了群里面发的“4-1.var“文件，以及”en.stsw-stm32054.zip“文件。并且把他们放到”prequist“文件夹里面进行解压。</p>
 <p>而”BSP“、”System“、”STM32F10x_StdPeriph_Driver“、”USER“是依照书上的要求进行的创建，这一步是为了方便对头文件路径的定位，也是为了方便查阅（一个项目通常会有很多的头文件依赖）。</p>
 <hr>
@@ -91,15 +91,14 @@
 <p>    选型结束就会弹出”runtime“窗口，这一步点开”CMSIS“左边的”+“号，然后在”CORE“后面打勾即可。</p>
 <p><img src="/2023/05/10/experiment1/experiment1/e2783948dc30becd5cb7b3d5bdd640fabbce59c6.png"></p>
 <p>    接下来，点击”Target_1“旁边的“魔法棒”图标，用于配置后续部分——一个是”define“，即宏；另一个是”Include Path“,也就是去哪里找到头文件的路径。</p>
-<p><img src="/2023/05/10/experiment1/experiment1/2023-05-11-09-29-58-image.png"></p>
-<p>    “Output”选项卡要打勾，在编译结束后生成对应的16进制码，这个.hex文件在之后的烧录中会有用。</p>
+<p><img src="/2023/05/10/experiment1/experiment1/eb73d5ea4f143ce963e215394ba10e45edbedfd9.png"></p>
+<p>   “Output”选项卡要打勾，在编译结束后生成对应的16进制码，这个.hex文件在之后的烧录中会有用。</p>
 <p><img src="/2023/05/10/experiment1/experiment1/89a7de90c357384305b3987f42209aaa920d5293.png"></p>
 <p>    宏定义的的配置如图（一定要正确不然找不对）。</p>
 <p><img src="/2023/05/10/experiment1/experiment1/cc34a87a98dcb9b29e686e2483d21f52e59706d5.png"></p>
 <p>    头文件路径添加如上（点击上面的小框框是”添加路径”，小叉叉是“删除”）</p>
 <p>    可以发现，这里添加的文件夹都是大家自己手动新建，并且往里面放了东西的。有的文件夹虽然没放头文件——譬如”System“文件夹，里面只有“startup_stm32f10x_md.s”和“system_stm32f10x.c”两个文件，但是我们在keil工程里面看会发现“system_stm32f10x.c”里面还是会有很多头文件（黄色的钥匙表示“只读文件”）。</p>
-<img src="/2023/05/10/experiment1/experiment1/2023-05-11-09-27-24-image.png" title alt width="345">
-
+<p><img src="/2023/05/10/experiment1/experiment1/2023-05-11-22-36-48-image.png"></p>
 <h2 id="3、编译"><a href="#3、编译" class="headerlink" title="3、编译"></a>3、编译</h2><p>    编译前记得把主函数里面的东西清空（不加while循环也行）；编译键是红色箭头指向的地方。</p>
 <p><img src="/2023/05/10/experiment1/experiment1/859b40b25f40e5c2b150cd5254a535d4f3c0f688.jpg"></p>
 <p>最后，你会在底下的“Read Output”视窗里面看见没有错误和警告，并且“Target”已经被“build”，这意味这 目前的代码 的环境已经配好了。（如果有别的代码，比如没有删除原始的代码，会有报错。其原因就是那些代码的依赖没加上，还要向上面那样添加路径什么的。）</p>
